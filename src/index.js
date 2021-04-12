@@ -7,12 +7,13 @@ import './index.css';
 import SearchCom from './searchCom';        // 搜索组件
 
 class ChinaMap extends Component{       // 地图组件
-    constructor(props){
-        super(props);
-        this.state = {
-            provinceList:null,
-        }
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         provinceList:null,
+    //     }
+    // }
+    state = {provinceList:null}
     render(){
         return(
             <div>
@@ -70,7 +71,7 @@ class ChinaMap extends Component{       // 地图组件
                         borderColor: 'rgba(0, 0, 0, 0.2)'
                     },
                     emphasis:{
-                        areaColor: '#F3B329',//鼠标选择区域颜色
+                        areaColor: '#6B8E23',//鼠标选择区域颜色
                         shadowOffsetX: 0,
                         shadowOffsetY: 0,
                         shadowBlur: 20,
@@ -89,9 +90,9 @@ class ChinaMap extends Component{       // 地图组件
             ]
         };
         myChart.setOption(option);
-        // myChart.on('click', function (params) {
-        //     alert(params.name);
-        // });
+        myChart.on('click', function (params) {
+            alert(params.name);
+        });
     }
     getData = ()=>{
         let province ={}        // 初步用于保存数据的对象
@@ -162,7 +163,7 @@ class FeiYanForm extends Component{     // 表格组件
                         <tr>
                             <th>省份</th>
                             <th>确诊人数</th>
-                            <th>疑症人数</th>
+                            <th>疑似人数</th>
                             <th>康复人数</th>
                             <th>死亡人数</th>
                         </tr>
